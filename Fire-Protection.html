@@ -95,7 +95,15 @@ body {
 </head>
 
 <body>
-  
+  <script>
+  // Check if the user is logged in
+  var isLoggedIn = false; // Set this variable to true if the user is logged in
+
+  // Redirect to the login page if the user is not logged in
+  if (!isLoggedIn) {
+    window.location.href = "login.html";
+  }
+</script>
   <header>
     <h1>Your Fire Security System</h1>
     <button class="report-button" onclick="reportFire()">Report Fire</button>
@@ -188,10 +196,7 @@ body {
           // Code to navigate to the room information page
           window.location.href = "room-information.html";
         }
-      function goToLogIn() {
-          // Code to navigate to the room information page
-          window.location.href = "LogIn.html";
-        }
+
   </script>
   
 </body>
