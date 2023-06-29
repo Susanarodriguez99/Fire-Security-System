@@ -67,6 +67,7 @@
       if (username === "susana" && password === "Susanarod99") {
         // Redirect to the main webpage if the login is successful
         window.location.href = "Fire-Protection.html";
+        sessionStorage.setItem('isLoggedIn', 'true');
       } else {
         window.location.href = "Fire-Protection.html";
         //alert("Invalid username or password. Please try again.");
