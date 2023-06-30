@@ -57,6 +57,15 @@
 </head>
 
 <body>
+   <script>
+  // Check if the user is logged in
+  var isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
+
+  // Redirect to the login page if the user is not logged in
+  if (!isLoggedIn) {
+    window.location.href = "LogIn.html";
+  }
+</script>
   <header>
     <h1>Fire Incident Information</h1>
   </header>
