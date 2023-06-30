@@ -96,6 +96,7 @@
     var fireType = sessionStorage.getItem('fireType');
     var airQuality = sessionStorage.getItem('airQuality');
     var bestRoute = sessionStorage.getItem('bestRoute');
+  
 
     document.getElementById('street').textContent = fireLocation ? fireLocation.street : '';
     document.getElementById('floor').textContent = fireLocation ? fireLocation.floor : '';
@@ -103,6 +104,13 @@
     document.getElementById('fireType').textContent = fireType || '';
     document.getElementById('airQuality').textContent = airQuality || '';
     document.getElementById('bestRoute').textContent = bestRoute || '';
+    document.getElementById('street').textContent = street || '';
+    document.getElementById('floor').textContent = floor || '';
+    document.getElementById('room').textContent = room || '';
+
+    // Set the Google Maps link
+    var mapLink = document.getElementById('mapLink');
+    mapLink.href = "https://www.google.com/maps/search/" + encodeURIComponent(street + ", " + floor + ", " + room);
 
     // Function to navigate back to the home page
     function goToHome() {
