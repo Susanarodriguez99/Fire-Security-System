@@ -1,1 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fire Incident Information</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    main {
+      margin: 20px;
+    }
+
+    h1 {
+      font-size: 35px;
+      margin-bottom: 20px;
+    }
+
+    .fire-details {
+      margin-bottom: 20px;
+    }
+
+    .fire-details h2 {
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .fire-details p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .navigation-button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Fire Incident Information</h1>
+  </header>
+
+  <main>
+    <div class="fire-details">
+      <h2>Fire Location</h2>
+      <p><strong>Street:</strong> <span id="street"></span></p>
+      <p><strong>Floor:</strong> <span id="floor"></span></p>
+      <p><strong>Room:</strong> <span id="room"></span></p>
+    </div>
+
+    <div class="fire-details">
+      <h2>Type of Fire</h2>
+      <p><span id="fireType"></span></p>
+    </div>
+
+    <div class="fire-details">
+      <h2>Air Quality</h2>
+      <p><span id="airQuality"></span></p>
+    </div>
+
+    <div class="fire-details">
+      <h2>Best Route</h2>
+      <p><span id="bestRoute"></span></p>
+    </div>
+
+    <button class="navigation-button" onclick="goToHome()">Back to Home</button>
+  </main>
+
+  <script>
+    // Retrieve and display the fire incident details from session storage or API
+    var fireLocation = sessionStorage.getItem('fireLocation');
+    var fireType = sessionStorage.getItem('fireType');
+    var airQuality = sessionStorage.getItem('airQuality');
+    var bestRoute = sessionStorage.getItem('bestRoute');
+
+    document.getElementById('street').textContent = fireLocation ? fireLocation.street : '';
+    document.getElementById('floor').textContent = fireLocation ? fireLocation.floor : '';
+    document.getElementById('room').textContent = fireLocation ? fireLocation.room : '';
+    document.getElementById('fireType').textContent = fireType || '';
+    document.getElementById('airQuality').textContent = airQuality || '';
+    document.getElementById('bestRoute').textContent = bestRoute || '';
+
+    // Function to navigate back to the home page
+    function goToHome() {
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+
+</html>
+In this code, we're setting the text content of the airQuality and bestRoute elements based on the retrieved values from session storage or an API. Additionally, we've added a goToHome() function that redirects the firefighter back to the home page when the "Back to Home" button is clicked.
