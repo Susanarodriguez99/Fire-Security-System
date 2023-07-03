@@ -70,6 +70,17 @@
     window.location.href = "LogIn.html";
   }
 </script>
+  <script>
+  // Assuming you have retrieved the location information from a form or an API response
+  var street = "123 Main Street";
+  var floor = "2nd Floor";
+  var room = "Conference Room";
+
+  // Save the location information in session storage
+  sessionStorage.setItem('street', street);
+  sessionStorage.setItem('floor', floor);
+  sessionStorage.setItem('room', room);
+</script>
   <header>
     <h1>Fire Incident Information</h1>
   </header>
