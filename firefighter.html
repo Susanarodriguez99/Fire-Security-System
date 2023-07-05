@@ -119,7 +119,7 @@
 
   <script>
     // Retrieve and display the fire incident details from session storage or API
-    var fireLocation = sessionStorage.getItem('fireLocation');
+    
     var fireType = sessionStorage.getItem('fireType');
     var airQuality = sessionStorage.getItem('airQuality');
     var bestRoute = sessionStorage.getItem('bestRoute');
@@ -127,9 +127,7 @@
     var floor = sessionStorage.getItem('floor');
     var room = sessionStorage.getItem('room');
 
-    document.getElementById('street').textContent = fireLocation ? fireLocation.street : '';
-    document.getElementById('floor').textContent = fireLocation ? fireLocation.floor : '';
-    document.getElementById('room').textContent = fireLocation ? fireLocation.room : '';
+ 
     document.getElementById('fireType').textContent = fireType || '';
     document.getElementById('airQuality').textContent = airQuality || '';
     document.getElementById('bestRoute').textContent = bestRoute || '';
