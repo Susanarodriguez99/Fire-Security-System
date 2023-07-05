@@ -117,21 +117,21 @@
 
   <script>
     // Retrieve and display the fire incident details from session storage or API
-    var fireLocation = sessionStorage.getItem('fireLocation');
-    var fireType = sessionStorage.getItem('fireType');
-    var airQuality = sessionStorage.getItem('airQuality');
-    var bestRoute = sessionStorage.getItem('bestRoute');
-  
+    var fireLocation = {
+      street: sessionStorage.getItem('street') || '',
+      floor: sessionStorage.getItem('floor') || '',
+      room: sessionStorage.getItem('room') || ''
+    };
+    var fireType = sessionStorage.getItem('fireType') || '';
+    var airQuality = sessionStorage.getItem('airQuality') || '';
+    var bestRoute = sessionStorage.getItem('bestRoute') || '';
 
-    document.getElementById('street').textContent = fireLocation ? fireLocation.street : '';
-    document.getElementById('floor').textContent = fireLocation ? fireLocation.floor : '';
-    document.getElementById('room').textContent = fireLocation ? fireLocation.room : '';
-    document.getElementById('fireType').textContent = fireType || '';
-    document.getElementById('airQuality').textContent = airQuality || '';
-    document.getElementById('bestRoute').textContent = bestRoute || '';
-    document.getElementById('street').textContent = street || '';
-    document.getElementById('floor').textContent = floor || '';
-    document.getElementById('room').textContent = room || '';
+     document.getElementById('street').textContent = fireLocation.street;
+    document.getElementById('floor').textContent = fireLocation.floor;
+    document.getElementById('room').textContent = fireLocation.room;
+    document.getElementById('fireType').textContent = fireType;
+    document.getElementById('airQuality').textContent = airQuality;
+    document.getElementById('bestRoute').textContent = bestRoute;
 
     // Set the Google Maps link
     var mapLink = document.getElementById('mapLink');
