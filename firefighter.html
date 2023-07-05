@@ -67,7 +67,7 @@
   var isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
 
   // Redirect to the login page if the user is not logged in
-  if (!isLoggedIn) {
+  if (!isLoggedIn && window.location.pathname !== '/LogIn.html') {
     window.location.href = "LogIn.html";
   }
 </script>
