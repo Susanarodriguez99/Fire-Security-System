@@ -120,7 +120,9 @@
     var fireType = sessionStorage.getItem('fireType');
     var airQuality = sessionStorage.getItem('airQuality');
     var bestRoute = sessionStorage.getItem('bestRoute');
-  
+    var street = sessionStorage.getItem('street');
+    var floor = sessionStorage.getItem('floor');
+    var room = sessionStorage.getItem('room');
 
     document.getElementById('street').textContent = fireLocation ? fireLocation.street : '';
     document.getElementById('floor').textContent = fireLocation ? fireLocation.floor : '';
