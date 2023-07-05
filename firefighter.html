@@ -62,7 +62,6 @@
 </head>
 
 <body>
-
    <script>
   // Check if the user is logged in
   var isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
@@ -72,9 +71,11 @@
     window.location.href = "LogIn.html";
   }
 </script>
-    <header>
-    <h1>Fire Incident Information</h1>       <img src="https://media.istockphoto.com/id/652608146/vector/flammable-material-sign-vector-design.jpg?s=612x612&w=0&k=20&c=deycMW1QXG_P1IvmuzXI9FnX_NornPohrIJV9gPgSBs=" alt="Danger Symbol" width="100" height="100">
+
+  <header>
+    <h1>Fire Information</h1>       <img src="https://media.istockphoto.com/id/652608146/vector/flammable-material-sign-vector-design.jpg?s=612x612&w=0&k=20&c=deycMW1QXG_P1IvmuzXI9FnX_NornPohrIJV9gPgSBs=" alt="Danger Symbol" width="100" height="100">
   </header>
+  
   <script>
   // Assuming you have retrieved the location information from a form or an API response
   var street = "123 Main Street";
@@ -104,7 +105,6 @@
       <img src="https://wpmedia.roomsketcher.com/content/uploads/2022/01/06145219/Floor-plan-with-dimensions.jpg" width="600" height="400">
     </div>
 
-
     <div class="fire-details">
       <h2>Information about the fire</h2>
           <img src="https://th.bing.com/th/id/R.1b8a9e7eb9fda509f0c2e88b401f580b?rik=AbNcj7Lz5aVJYA&riu=http%3a%2f%2f2.bp.blogspot.com%2f_q04f_XGZ4RM%2fS65v7Pi56iI%2fAAAAAAAAAD0%2f4a7Rll5JhKs%2fs320%2fline-graph%5b1%5d.gif&ehk=CGBGI2aeyeA2c936uG3DknJwi%2fS5CUKJceKUQM5FWRc%3d&risl=&pid=ImgRaw&r=0" alt="Graph" width="150" height="130">        
@@ -116,15 +116,15 @@
 
   <script>
     // Retrieve and display the fire incident details from session storage or API
-    
+    var fireLocation = sessionStorage.getItem('fireLocation');
     var fireType = sessionStorage.getItem('fireType');
     var airQuality = sessionStorage.getItem('airQuality');
     var bestRoute = sessionStorage.getItem('bestRoute');
-    var street = sessionStorage.getItem('street');
-    var floor = sessionStorage.getItem('floor');
-    var room = sessionStorage.getItem('room');
+  
 
- 
+    document.getElementById('street').textContent = fireLocation ? fireLocation.street : '';
+    document.getElementById('floor').textContent = fireLocation ? fireLocation.floor : '';
+    document.getElementById('room').textContent = fireLocation ? fireLocation.room : '';
     document.getElementById('fireType').textContent = fireType || '';
     document.getElementById('airQuality').textContent = airQuality || '';
     document.getElementById('bestRoute').textContent = bestRoute || '';
