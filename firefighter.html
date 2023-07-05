@@ -66,7 +66,10 @@
   // Check if the user is logged in
   var isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
 
-
+  // Redirect to the login page if the user is not logged in
+  if (!isLoggedIn) {
+    window.location.href = "LogIn.html";
+  }
 </script>
 
   <header>
@@ -123,26 +126,17 @@
     var airQuality = sessionStorage.getItem('airQuality') || '';
     var bestRoute = sessionStorage.getItem('bestRoute') || '';
 
-  if (isLoggedIn) {
-    document.getElementById('street').textContent = fireLocation.street;
+     document.getElementById('street').textContent = fireLocation.street;
     document.getElementById('floor').textContent = fireLocation.floor;
     document.getElementById('room').textContent = fireLocation.room;
-  } else {
-    redirectToLogin(); // Redirect to login page if not logged in
-  }
     document.getElementById('fireType').textContent = fireType;
     document.getElementById('airQuality').textContent = airQuality;
     document.getElementById('bestRoute').textContent = bestRoute;
 
     // Set the Google Maps link
     var mapLink = document.getElementById('mapLink');
-  if (isLoggedIn) {
-    mapLink.href = "https://www.google.com/maps/search/" + encodeURIComponent(fireLocation.street + ", " + fireLocation.floor + ", " + fireLocation.room);
-  } else {
-    mapLink.href = "LogIn.html"; // Redirect to login page if not logged in
-  }
-</script>
-    
+    mapLink.href = "https://www.google.com/maps/search/" + encodeURIComponent(street + ", " + floor + ", " + room);
+
     // Function to navigate back to the home page
     function goToHome() {
       window.location.href = "user-type.html";
@@ -150,10 +144,7 @@
     function goToFireInfo() {
       window.location.href = "FireInfo.html";
     }
-   function redirectToLogin() {
-    window.location.href = "LogIn.html";
-  }
   </script>
 </body>
 
-</html>
+</html> 
