@@ -91,24 +91,12 @@
   measurementId: "G-6B29SZVMSD"
 };
 
-
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  var db = firebase.firestore();
     
 </script>
-  <script>
-  // Assuming you have retrieved the location information from a form or an API response
-  var street = "123 Main Street";
-  var floor = "2nd Floor";
-  var room = "Kitchen";
-  var inhabitants = "3";
-  var fireType = "Kitchen Fire";
-
-  // Save the location information in session storage
-  sessionStorage.setItem('street', street);
-  sessionStorage.setItem('floor', floor);
-  sessionStorage.setItem('room', room);
-  sessionStorage.setItem('inhabitants', inhabitants); 
-  sessionStorage.setItem('fireType', fireType);
-</script>
+  
 
   <main>
     <div class="fire-details">
@@ -135,35 +123,39 @@
     <button class="navigation-button" onclick="goToHome()">Back to Home</button>
   </main>
 
-  <script>
-    // Retrieve and display the fire incident details from session storage or API
-    var fireLocation = {
-      street: sessionStorage.getItem('street') || '',
-      floor: sessionStorage.getItem('floor') || '',
-      room: sessionStorage.getItem('room') || ''
-    };
 
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  var db = firebase.firestore();
+<!-- Add this script tag after the Firebase SDK script tags -->
+<script>
+  // Retrieve the document from Firestore
+  var docRef = db.collection("FireInfo").doc("QHNaA138aV8TzCf6TykL");
 
-        // Retrieve data from Firestore and update HTML elements
-    db.collection("fireInformation").doc("fireData").get()
-      .then(function(doc) {
-        if (doc.exists) {
-          var data = doc.data();
-          document.getElementById("street").textContent = data.street;
-          document.getElementById("floor").textContent = data.floor;
-          document.getElementById("room").textContent = data.room;
-          document.getElementById("inhabitants").textContent = data.inhabitants;
-          document.getElementById("fireType").textContent = data.fireType;
-        } else {
-          console.log("No data found in Firestore");
-        }
-      })
-      .catch(function(error) {
-        console.error("Error retrieving data:", error);
-      });
+  docRef.get().then(function(doc) {
+    if (doc.exists) {
+      // Retrieve the data fields from the document
+      var data = doc.data();
+      var street = data.street;
+      var floor = data.floor;
+      var room = data.room;
+
+      // Update the HTML elements with the retrieved values
+      document.getElementById("street").textContent = street;
+      document.getElementById("floor").textContent = floor;
+      document.getElementById("room").textContent = room;
+    } else {
+      console.log("No such document!");
+    }
+  }).catch(function(error) {
+    console.log("Error getting document:", error);
+  });
+</script>
+
+
+
+
+
+
+
+
     // Set the Google Maps link
     var mapLink = document.getElementById('mapLink');
     mapLink.href = "https://www.google.com/maps/search/" + encodeURIComponent(sessionStorage.getItem('street') + ", " + sessionStorage.getItem('floor') + ", " + sessionStorage.getItem('room'));
