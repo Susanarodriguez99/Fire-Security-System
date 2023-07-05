@@ -81,12 +81,14 @@
   var street = "123 Main Street";
   var floor = "2nd Floor";
   var room = "Kitchen";
+  var inhabitants = "3";
   var fireType = "Kitchen Fire";
 
   // Save the location information in session storage
   sessionStorage.setItem('street', street);
   sessionStorage.setItem('floor', floor);
   sessionStorage.setItem('room', room);
+  sessionStorage.setItem('inhabitants', inhabitants); 
   sessionStorage.setItem('fireType', fireType);
 </script>
 
@@ -103,6 +105,8 @@
       <img src="https://virarquitectura.com/wp-content/uploads/2020/02/P3-SECCION-ALZADO-scaled.jpg" alt="House map" width="600" height="400">
       <p><strong>Floor Map:</strong></p>
       <img src="https://wpmedia.roomsketcher.com/content/uploads/2022/01/06145219/Floor-plan-with-dimensions.jpg" width="600" height="400">
+      <p><strong>Number of inhabitants in the unit:</strong> <span id="inhabitants"></span></p>
+      
     </div>
 
     <div class="fire-details">
@@ -122,6 +126,7 @@
       floor: sessionStorage.getItem('floor') || '',
       room: sessionStorage.getItem('room') || ''
     };
+    var inhabitants = sessionStorage.getItem('inhabitants') || '';
     var fireType = sessionStorage.getItem('fireType') || '';
     var airQuality = sessionStorage.getItem('airQuality') || '';
     var bestRoute = sessionStorage.getItem('bestRoute') || '';
@@ -129,6 +134,7 @@
      document.getElementById('street').textContent = fireLocation.street;
     document.getElementById('floor').textContent = fireLocation.floor;
     document.getElementById('room').textContent = fireLocation.room;
+    document.getElementById('inhabitants').textContent = inhabitants;
     document.getElementById('fireType').textContent = fireType;
     document.getElementById('airQuality').textContent = airQuality;
     document.getElementById('bestRoute').textContent = bestRoute;
