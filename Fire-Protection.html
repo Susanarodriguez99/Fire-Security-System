@@ -167,6 +167,10 @@ body {
           </p>
           
           <button class="room-info-button" onclick="goToRoomInfo()">Room Information</button>
+          <p>Click the button to see information about the fire
+          </p>
+          
+          <button class="room-info-button" onclick="goToFireInfo()">Fire Information</button>
         </div>
       </div>
 
@@ -192,10 +196,15 @@ body {
       // Code to handle emergency reporting
       alert("Emergency reported!");
     }
-            function goToRoomInfo() {
+            function goToFireInfo() {
           // Code to navigate to the room information page
           window.location.href = "FireInfo.html";
         }
+                  function goToRoomInfo() {
+          // Code to navigate to the room information page
+          window.location.href = "room-information.html";
+        }
+
 
   </script>
   
