@@ -267,6 +267,37 @@ tr:nth-child(even) {
   </main>
 
 
+  <script>
+  // Retrieve the document from Firestore
+  var docRef = db.collection("FireInfo").doc("QHNaA138aV8TzCf6TykL");
+
+  docRef.get().then(function(doc) {
+    if (doc.exists) {
+      // Get a reference to the database node containing your variables
+      var variablesRef = database.ref("variables");
+
+      // Listen for changes in the data
+      variablesRef.on("value", function(snapshot) {
+        // Get the data from the snapshot
+        var data = snapshot.val();
+
+        // Update the webpage with the data
+        document.getElementById("airQuality").textContent = data.airQuality;
+        document.getElementById("humidity").textContent = data.humidity;
+        document.getElementById("occupation").textContent = data.occupation;
+        document.getElementById("temperature").textContent = data.temperature;
+        document.getElementById("timestamp").textContent = data.timestamp;
+      });
+    } else {
+      console.log("No such document!");
+    }
+  }).catch(function(error) {
+    console.log("Error getting document:", error);
+  });
+</script>
+
+  
+
     <footer>
     <p>&copy; 2023 Fire Security System. All rights reserved.</p>
  
