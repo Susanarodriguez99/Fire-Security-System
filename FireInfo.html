@@ -80,11 +80,52 @@ tr:nth-child(even) {
       text-align: center;
     }
   </style>
+  <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-database.js"></script>
+  
+      <script>
+  // Replace with your Firebase SDK configuration
+  var firebaseConfig = {
+  apiKey: "AIzaSyAV9k9scA34XvX3i5jaE3OvK8xpkghi_KQ",
+  authDomain: "fire-protection-system-ui.firebaseapp.com",
+  databaseURL: "https://fire-protection-system-ui-default-rtdb.firebaseio.com",
+  projectId: "fire-protection-system-ui",
+  storageBucket: "fire-protection-system-ui.appspot.com",
+  messagingSenderId: "211325721015",
+  appId: "1:211325721015:web:9ef22dc54bd2b7f907f032",
+  measurementId: "G-6B29SZVMSD"
+};
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  var database = firebase.database();
+    
+    function displayData() {
+      // Get a reference to the database node containing your variables
+      var variablesRef = database.ref("variables");
+
+      // Listen for changes in the data
+      variablesRef.on("value", function(snapshot) {
+        // Get the data from the snapshot
+        var data = snapshot.val();
+
+        // Update the webpage with the data
+        document.getElementById("airQuality").textContent = data.airQuality;
+        document.getElementById("humidity").textContent = data.humidity;
+        document.getElementById("occupation").textContent = data.occupation;
+        document.getElementById("temperature").textContent = data.temperature;
+        document.getElementById("timestamp").textContent = data.timestamp;
+      });
+    }
+
+    // Call the displayData function when the page loads
+    window.onload = displayData;
+  </script>
+
 </head>
 
 <body>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
   
    <script>
   // Check if the user is logged in
@@ -103,24 +144,6 @@ tr:nth-child(even) {
 
 </script>
 
-    <script>
-  // Replace with your Firebase SDK configuration
-  var firebaseConfig = {
-  apiKey: "AIzaSyAV9k9scA34XvX3i5jaE3OvK8xpkghi_KQ",
-  authDomain: "fire-protection-system-ui.firebaseapp.com",
-  databaseURL: "https://fire-protection-system-ui-default-rtdb.firebaseio.com",
-  projectId: "fire-protection-system-ui",
-  storageBucket: "fire-protection-system-ui.appspot.com",
-  messagingSenderId: "211325721015",
-  appId: "1:211325721015:web:9ef22dc54bd2b7f907f032",
-  measurementId: "G-6B29SZVMSD"
-};
-
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  var db = firebase.database();
-    
-</script>
   <main>
     <div class="fire-details">
       <h2>Fire information:</h2>
@@ -265,29 +288,6 @@ tr:nth-child(even) {
 <hr/>
     <button class="navigation-button" onclick="goToHome()">Back to Home</button>
   </main>
-
-  <script>
-    function displayData() {
-      // Get a reference to the database node containing your variables
-      var variablesRef = database.ref("variables");
-
-      // Listen for changes in the data
-      variablesRef.on("value", function(snapshot) {
-        // Get the data from the snapshot
-        var data = snapshot.val();
-
-        // Update the webpage with the data
-        document.getElementById("airQuality").textContent = data.airQuality;
-        document.getElementById("humidity").textContent = data.humidity;
-        document.getElementById("occupation").textContent = data.occupation;
-        document.getElementById("temperature").textContent = data.temperature;
-        document.getElementById("timestamp").textContent = data.timestamp;
-      });
-    }
-
-    // Call the displayData function when the page loads
-    window.onload = displayData;
-  </script>
 
   
 
