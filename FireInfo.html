@@ -111,6 +111,7 @@ tr:nth-child(even) {
 
         // Update the webpage with the data
         document.getElementById("airQuality").textContent = data.airQuality;
+        document.getElementById("fireStatus").textContent = data.fireStatus;
         document.getElementById("humidity").textContent = data.humidity;
         document.getElementById("occupation").textContent = data.occupation;
         document.getElementById("temperature").textContent = data.temperature;
@@ -121,12 +122,11 @@ tr:nth-child(even) {
     // Call the displayData function when the page loads
     window.onload = displayData;
   </script>
-
 </head>
 
+  
 <body>
 
-  
    <script>
   // Check if the user is logged in
   var isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
@@ -152,9 +152,7 @@ tr:nth-child(even) {
   <p><strong>Air Quality:</strong> <span id="airQuality"></span></p>
   <p><strong>Humidity:</strong> <span id="humidity"></span></p>
   <p><strong>Occupation:</strong> <span id="occupation"></span></p>
-  
-  
-      
+
     </div>
 
     <div class="fire-details">
