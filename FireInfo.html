@@ -291,37 +291,14 @@ tr:nth-child(even) {
     <button class="navigation-button" onclick="goToHome()">Back to Home</button>
   </main>
 
-  
-
     <footer>
     <p>&copy; 2023 Fire Security System. All rights reserved.</p>
- 
+
    <img src=https://webstockreview.net/images/phone-icon-png-3.png alt="Phone" width="20" height="20" > 
     <p> For an emergency call: (834) 567-3478</p>
   </footer>
   
   <script>
-    // Retrieve and display the fire incident details from session storage or API
-    var fireLocation = sessionStorage.getItem('fireLocation');
-    var fireType = sessionStorage.getItem('fireType');
-    var airQuality = sessionStorage.getItem('airQuality');
-    var bestRoute = sessionStorage.getItem('bestRoute');
-  
-
-    document.getElementById('street').textContent = fireLocation ? fireLocation.street : '';
-    document.getElementById('floor').textContent = fireLocation ? fireLocation.floor : '';
-    document.getElementById('room').textContent = fireLocation ? fireLocation.room : '';
-    document.getElementById('fireType').textContent = fireType || '';
-    document.getElementById('airQuality').textContent = airQuality || '';
-    document.getElementById('bestRoute').textContent = bestRoute || '';
-    document.getElementById('street').textContent = street || '';
-    document.getElementById('floor').textContent = floor || '';
-    document.getElementById('room').textContent = room || '';
-
-    // Set the Google Maps link
-    var mapLink = document.getElementById('mapLink');
-    mapLink.href = "https://www.google.com/maps/search/" + encodeURIComponent(street + ", " + floor + ", " + room);
-
     // Function to navigate back to the home page
     function goToHome() {
       window.location.href = "user-type.html";
