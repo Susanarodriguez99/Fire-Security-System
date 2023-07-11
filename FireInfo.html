@@ -266,13 +266,8 @@ tr:nth-child(even) {
     <button class="navigation-button" onclick="goToHome()">Back to Home</button>
   </main>
 
-
   <script>
-  // Retrieve the document from Firestore
-  var docRef = db.collection("FireInfo").doc("QHNaA138aV8TzCf6TykL");
-
-  docRef.get().then(function(doc) {
-    if (doc.exists) {
+    function displayData() {
       // Get a reference to the database node containing your variables
       var variablesRef = database.ref("variables");
 
@@ -288,13 +283,11 @@ tr:nth-child(even) {
         document.getElementById("temperature").textContent = data.temperature;
         document.getElementById("timestamp").textContent = data.timestamp;
       });
-    } else {
-      console.log("No such document!");
     }
-  }).catch(function(error) {
-    console.log("Error getting document:", error);
-  });
-</script>
+
+    // Call the displayData function when the page loads
+    window.onload = displayData;
+  </script>
 
   
 
