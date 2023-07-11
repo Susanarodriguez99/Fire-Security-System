@@ -102,7 +102,7 @@ var firebaseConfig = {
     
     function displayData() {
       // Get a reference to the database node containing your variables
-      var variablesRef = database.ref("variables");
+      var variablesRef = database.ref("RPi@SH308A");
 
       // Listen for changes in the data
       variablesRef.on("value", function(snapshot) {
