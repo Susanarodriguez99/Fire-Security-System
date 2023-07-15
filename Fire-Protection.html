@@ -108,10 +108,7 @@ body {
 
 <body>
  <script>
-  // Check if the user is logged in
   var isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
-
-  // Redirect to the login page if the user is not logged in
   if (!isLoggedIn) {
     window.location.href = "LogIn.html";
   }
@@ -172,9 +169,7 @@ body {
    
    
     <section>
-      <h2>About your house</h2>
-     
-        
+      <h2>About your house</h2> 
         <div>
           
           <img src="https://th.bing.com/th/id/R.1b8a9e7eb9fda509f0c2e88b401f580b?rik=AbNcj7Lz5aVJYA&riu=http%3a%2f%2f2.bp.blogspot.com%2f_q04f_XGZ4RM%2fS65v7Pi56iI%2fAAAAAAAAAD0%2f4a7Rll5JhKs%2fs320%2fline-graph%5b1%5d.gif&ehk=CGBGI2aeyeA2c936uG3DknJwi%2fS5CUKJceKUQM5FWRc%3d&risl=&pid=ImgRaw&r=0" alt="Fire Alarm">
@@ -188,7 +183,6 @@ body {
           <button class="room-info-button" onclick="goToFireInfo()">Fire Information</button>
         </div>
       
-     
     </section>
     <hr/>
     <button class="room-info-button" onclick="goToHome()">Back to Home</button>
@@ -196,34 +190,28 @@ body {
 
   <footer>
     <p>&copy; 2023 Fire Security System. All rights reserved.</p>
- 
    <img src=https://webstockreview.net/images/phone-icon-png-3.png alt="Phone" width="20" height="20" > 
     <p> For an emergency call: (834) 567-3478</p>
   </footer>
   
     <script>
     function reportFire() {
-      // Code to handle fire reporting
       alert("Fire reported!");
     }
 
     function reportEmergency() {
-      // Code to handle emergency reporting
       alert("Emergency reported!");
     }
-            function goToFireInfo() {
-          // Code to navigate to the room information page
-          window.location.href = "FireInfo.html";
-        }
-                  function goToRoomInfo() {
-          // Code to navigate to the room information page
-          window.location.href = "room-information.html";
-        }
+    function goToFireInfo() {
+      window.location.href = "FireInfo.html";
+    }
+    function goToRoomInfo() {
+       window.location.href = "room-information.html";
+    }
 
 
   </script>
     <script>
-    // Function to navigate back to the home page
     function goToHome() {
       window.location.href = "user-type.html";
     }
