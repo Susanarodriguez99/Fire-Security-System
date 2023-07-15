@@ -116,7 +116,6 @@ var firebaseConfig = {
       });
     }
 
-    // Call the displayData function when the page loads
     window.onload = displayData;
   </script>
 </head>
@@ -125,10 +124,9 @@ var firebaseConfig = {
 <body>
 
    <script>
-  // Check if the user is logged in
+
   var isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
 
-  // Redirect to the login page if the user is not logged in
   if (!isLoggedIn) {
     window.location.href = "LogIn.html";
   }
@@ -192,7 +190,6 @@ var firebaseConfig = {
   </footer>
   
   <script>
-    // Function to navigate back to the home page
     function goToHome() {
       window.location.href = "user-type.html";
     }
