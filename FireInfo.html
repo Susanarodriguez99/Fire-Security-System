@@ -117,6 +117,7 @@ var firebaseConfig = {
         var data = snapshot.val();
 
         document.getElementById("airQuality").textContent = data.airQuality;
+        document.getElementById("carbonMonoxide").textContent = data.carbonMonoxide;
         document.getElementById("fireStatus").textContent = data.fireStatus;
         document.getElementById("humidity").textContent = data.humidity;
         document.getElementById("occupation").textContent = data.occupation;
@@ -155,6 +156,7 @@ var firebaseConfig = {
   <p><strong>Timestamp:</strong> <span id="timestamp"></span></p>
   <p><strong>Temperature:</strong> <span id="temperature"></span></p>
   <p><strong>Air Quality:</strong> <span id="airQuality"></span></p>
+ <p><strong>carbonMonoxide:</strong> <span id="carbonMonoxide"></span></p>
   <p><strong>Humidity:</strong> <span id="humidity"></span></p>
   <p><strong>Occupation:</strong> <span id="occupation"></span></p>
 
