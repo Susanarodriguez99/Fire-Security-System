@@ -153,7 +153,7 @@ var firebaseConfig = {
     <div class="fire-details">
       <h2>Safe-room values</h2>
       <p><span id="fireType"></span></p>
-    <table>
+   <table>
   <thead>
     <tr>
       <th>Parameter</th>
@@ -173,9 +173,14 @@ var firebaseConfig = {
       <td>Maintaining proper humidity levels helps prevent the growth of mold, bacteria, and viruses. It also promotes respiratory health and prevents dryness or excess moisture in the air.</td>
     </tr>
     <tr>
-      <td>Air Quality</td>
-      <td>0 - 50 AQI (Air Quality Index)</td>
-      <td>The Air Quality Index measures the level of pollutants in the air. A value within this range indicates good air quality with minimal pollutants, ensuring a healthy environment.</td>
+      <td>Air Quality (CO2)</td>
+      <td>400 - 1000 ppm</td>
+      <td>Carbon dioxide (CO2) is a natural component of air. Concentrations below 1000 ppm are generally considered safe for indoor environments and indicate good ventilation. Higher levels may indicate inadequate ventilation and can cause discomfort.</td>
+    </tr>
+    <tr>
+      <td>Air Quality (CO)</td>
+      <td>0 - 9 ppm</td>
+      <td>Carbon monoxide (CO) is a poisonous gas. The safe level of carbon monoxide in the air is typically considered to be below 9 ppm. Higher levels can be harmful and potentially life-threatening.</td>
     </tr>
   </tbody>
 </table>
