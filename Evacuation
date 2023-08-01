@@ -1,1 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fire Incident Information</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    main {
+      margin: 40px;
+    }
+
+    h1 {
+      font-size: 35px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .fire-details {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .fire-details h2 {
+      font-size: 20px;
+      margin: 0;
+      text-align: center;
+    }
+    .feature img {
+      margin-right: 20px;
+      width: 100px;
+      text-align: center;
+    }
+
+    .fire-details p {
+      font-size: 16px;
+      line-height: 1.5;
+      
+      text-align: center;
+    }
+
+    .navigation-button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+      text-align: center;
+    }
+        footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+   <script>
+
+  var isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
+
+  if (!isLoggedIn && window.location.pathname !== '/LogIn.html') {
+    window.location.href = "LogIn.html";
+  }
+</script>
+
+  <header>
+    <h1>Evacuation Route</h1>       <img src="https://media.istockphoto.com/id/652608146/vector/flammable-material-sign-vector-design.jpg?s=612x612&w=0&k=20&c=deycMW1QXG_P1IvmuzXI9FnX_NornPohrIJV9gPgSBs=" alt="Danger Symbol" width="100" height="100">
+  </header>
+  
+  <script>
+
+  var firebaseConfig = {
+  apiKey: "AIzaSyAV9k9scA34XvX3i5jaE3OvK8xpkghi_KQ",
+  authDomain: "fire-protection-system-ui.firebaseapp.com",
+  databaseURL: "https://fire-protection-system-ui-default-rtdb.firebaseio.com",
+  projectId: "fire-protection-system-ui",
+  storageBucket: "fire-protection-system-ui.appspot.com",
+  messagingSenderId: "211325721015",
+  appId: "1:211325721015:web:9ef22dc54bd2b7f907f032",
+  measurementId: "G-6B29SZVMSD"
+};
+
+
+  firebase.initializeApp(firebaseConfig);
+  var db = firebase.firestore();
+    
+</script>
+  
+
+  <main>
+    <div class="fire-details">
+
+      <p><strong>Evacuation route:</strong> <span id="floor"></span></p>
+      <img src="https://firebasestorage.googleapis.com/v0/b/fire-protection-system-ui.appspot.com/o/animation.gif?alt=media&token=c4be7f1f-fa55-4a7e-8b21-b6d4bfd12ee5" alt="GIF from Firebase Storage" width="600" height="400">
+      <p>Legend:</p>
+      <p style="color:green;">      Green dot: Location of the person </p>
+      <p style="color:orange;">      Orange dot: Fire</p>
+      <p style="color:red;">      Red dot: How fire spreads</p>
+      <p style="color:blue;">      Blue lines: Safest Route /p>
+      <p style="color:yellow;">      Yellow square: Exit</p>
+      <p style="color:green;">      Green square: Doors</p>
+      <p style="color:purple;">      Purple square: Walls</p>
+      
+        </div>
+
+    <button class="navigation-button" onclick="goToHome()">Back to Home</button>
+  </main>
+
+    <footer>
+    <p>&copy; 2023 Fire Security System. All rights reserved.</p>
+ 
+   <img src=https://webstockreview.net/images/phone-icon-png-3.png alt="Phone" width="20" height="20" > 
+    <p> For an emergency call: (834) 567-3478</p>
+  </footer>
+  
+
+</script>
+
+
+
+  <script>
+    function goToHome() {
+      window.location.href = "user-type.html";
+    }
+    function goToFireInfo() {
+      window.location.href = "FireInfo.html";
+    }
+        function goToRoomInfo() {
+      window.location.href = "room-information.html";
+    }
+  </script>
+</body>
+
+</html> 
